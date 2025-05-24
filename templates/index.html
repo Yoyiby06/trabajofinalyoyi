@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Trámites | Municipalidad Provincial de Yau</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #ecf0f1;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 10px;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin: 12px 0 6px;
+            font-weight: 500;
+            color: #34495e;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, select:focus {
+            border-color: #2980b9;
+            outline: none;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1c5980;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 13px;
+            color: #7f8c8d;
+            padding: 15px 10px;
+            background-color: #f0f3f4;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Municipalidad Provincial de Yau
+    </header>
+    <main>
+        <div class="container">
+            <h2>Registrar nuevo trámite</h2>
+            <form method="POST">
+                <label for="nombre">Nombre completo</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="correo">Correo electrónico</label>
+                <input type="email" id="correo" name="correo" required>
+
+                <label for="tipo">Tipo de trámite</label>
+                <select id="tipo" name="tipo">
+                    <option value="">-- Seleccione una opcion --</option>
+                    <option value="reclamo">Reclamo</option>
+                    <option value="licencia">Licencia</option>
+                    <option value="emergencia">Emergencia</option>
+                    <option value="solicitud">Solicitud</option>
+                </select>
+
+                <label for="urgencia">Nivel de urgencia (1 a 5)</label>
+                <input type="number" id="urgencia" name="urgencia" min="1" max="5" required>
+
+                <button type="submit">Enviar solicitud</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        &copy; 2025 Municipalidad Provincial de Yau - Sistema Automatizado de Trámites de YOYI
+    </footer>
+</body>
+</html>
